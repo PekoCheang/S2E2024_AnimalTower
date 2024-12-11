@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pantalone
-  - Pulcinella
+  - Animal
   layers:
   - Default
   - TransparentFX
