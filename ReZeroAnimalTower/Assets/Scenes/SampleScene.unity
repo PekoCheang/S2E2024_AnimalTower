@@ -523,7 +523,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 77b129b069565294db649b2095553531, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -562,6 +562,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77ee9a7900da1544abaad565097e138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animals:
+  - {fileID: 8621202200704036579, guid: 67c13e5b04267a74ba276863e49d9876, type: 3}
+  - {fileID: 2871456996030240224, guid: 57267b05f2657a846be01f38a3d9c5af, type: 3}
+  - {fileID: 3273059699886688930, guid: 95bbc639dfff1c4448b2eca10756b8ff, type: 3}
+  - {fileID: 7847487786198393496, guid: 0f39f87e84c31534f9d616fd8c01306a, type: 3}
+  - {fileID: 2739799326122428479, guid: dd257267d8f9ef249b702c7ec46120a2, type: 3}
+  - {fileID: 416247430330642590, guid: a92ab9b5089377d4b9a42d8201d54cb0, type: 3}
+  - {fileID: 7715410686977788398, guid: 442562466923f144f99cb0a42fff303c, type: 3}
 --- !u!1 &1849412381
 GameObject:
   m_ObjectHideFlags: 0
