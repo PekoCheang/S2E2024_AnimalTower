@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnAnimalFunc : MonoBehaviour
 {
+    public float Upvalue = 0.5f;
     public GameObject[] animals;
     GameObject currentAnimal;
 
@@ -20,13 +21,14 @@ public class SpawnAnimalFunc : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()   
+    void Update()
     {
         //2.SpawnAnimal
         if (Input.GetKeyDown(KeyCode.F))
         {
             spawnAnimal();
-        }   
+            
+        }
 
 
         //1.Spawner Movement 
@@ -34,31 +36,25 @@ public class SpawnAnimalFunc : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         //if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("MoveLeft");
-            Vector3 spawnerPos = transform.position;
-            spawnerPos.x += movement * (-1);
-            transform.position = spawnerPos;
+            moveLeft();
         }
         if (Input.GetKeyDown(KeyCode.D))
         //if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("MoveReft");
-            Vector3 spawnerPos = transform.position;
-            spawnerPos.x += movement * (1);
-            transform.position = spawnerPos;
+            moveRight();
 
         }
 
         //if(Input.GetKeyDown(KeyCode.Q))
         if (Input.GetKey(KeyCode.Q))
         {
-            angle += turnAngle;
-            Vector3 rot = new Vector3(0.0f, 0.0f, angle);
-            transform.eulerAngles = rot;
-
+            rortateCCW();
 
         }
-
+        if (Input.GetKey(KeyCode.E))
+        {
+            rortateCW();
+        }
         //3.Animal Follow
         if (currentAnimal != null && LetItGo == false)
         {
@@ -67,17 +63,21 @@ public class SpawnAnimalFunc : MonoBehaviour
         }
 
         //4.Let it Go
-        if (currentAnimal != null && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            LetItGo = true;
-            //currentAnimal.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-            currentAnimal.GetComponent<Rigidbody2D>().simulated = true;
-
-            currentAnimal = null;
+            letGo();
+            Debug.Log("LetGo");
         }
     }
 
 
+    void moveUp()
+    {
+        //Debug.Log("MoveLeft"):
+        Vector3 spawnerPos = transform.position;
+        spawnerPos.y += Upvalue;
+        transform.position = spawnerPos;
+    }
     void spawnAnimal()
     {
         if (currentAnimal == null)
@@ -91,4 +91,51 @@ public class SpawnAnimalFunc : MonoBehaviour
             LetItGo = false;
         }
     }
+
+    void moveLeft()
+    {
+        float movement = 0.5f;
+        Debug.Log("MoveLeft");
+        Vector3 spawnerPos = transform.position;
+        spawnerPos.x += movement * (-1);
+        transform.position = spawnerPos;
+    }
+
+    void moveRight()
+    {
+        float movement = 0.5f;
+        Debug.Log("MoveReft");
+        Vector3 spawnerPos = transform.position;
+        spawnerPos.x += movement * (1);
+        transform.position = spawnerPos;
+    }
+
+    void rortateCCW()
+    {
+        angle += turnAngle;
+        Vector3 rot = new Vector3(0.0f, 0.0f, angle);
+        transform.eulerAngles = rot;
+    }
+
+    void rortateCW()
+    {
+        angle -= turnAngle;
+        Vector3 rot = new Vector3(0.0f, 0.0f, angle);
+        transform.eulerAngles = rot;
+    }
+
+    void letGo()
+    {
+        if (currentAnimal != null)
+        {
+            LetItGo = true;
+            //currentAnimal.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+            currentAnimal.GetComponent<Rigidbody2D>().simulated = true;
+            currentAnimal = null;
+
+            moveUp();
+        }
+
+    }
+
 }
