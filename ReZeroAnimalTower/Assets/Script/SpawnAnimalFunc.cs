@@ -78,7 +78,7 @@ public class SpawnAnimalFunc : MonoBehaviour
         spawnerPos.y += Upvalue;
         transform.position = spawnerPos;
     }
-    void spawnAnimal()
+    public void spawnAnimal()
     {
         if (currentAnimal == null)
         {
@@ -92,7 +92,7 @@ public class SpawnAnimalFunc : MonoBehaviour
         }
     }
 
-    void moveLeft()
+    public void moveLeft()
     {
         float movement = 0.5f;
         Debug.Log("MoveLeft");
@@ -101,7 +101,7 @@ public class SpawnAnimalFunc : MonoBehaviour
         transform.position = spawnerPos;
     }
 
-    void moveRight()
+    public void moveRight()
     {
         float movement = 0.5f;
         Debug.Log("MoveReft");
@@ -110,21 +110,21 @@ public class SpawnAnimalFunc : MonoBehaviour
         transform.position = spawnerPos;
     }
 
-    void rortateCCW()
+    public void rortateCCW()
     {
         angle += turnAngle;
         Vector3 rot = new Vector3(0.0f, 0.0f, angle);
         transform.eulerAngles = rot;
     }
 
-    void rortateCW()
+    public void rortateCW()
     {
         angle -= turnAngle;
         Vector3 rot = new Vector3(0.0f, 0.0f, angle);
         transform.eulerAngles = rot;
     }
 
-    void letGo()
+    public void letGo()
     {
         if (currentAnimal != null)
         {
