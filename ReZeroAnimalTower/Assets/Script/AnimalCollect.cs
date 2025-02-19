@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class AnimalCollect : MonoBehaviour
 {
-
+    public GameObject gameOText;
+    AudioSource SE;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SE = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,12 +30,10 @@ public class AnimalCollect : MonoBehaviour
             Debug.Log("It's an Animal!!");
             Destroy(collision.gameObject);
             Debug.Log("Game Over!!");
+            gameOText.SetActive(true);
+            SE.Play();
         }
 
     }
-    private void aaOnTriggerEnter2D(Collider2D collection)
-    {
-      
-
-    }
+    
 }

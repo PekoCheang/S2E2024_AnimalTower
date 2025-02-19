@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnAnimalFunc : MonoBehaviour
 {
+    AudioSource SE;
+
     public float Upvalue = 0.5f;
     public GameObject[] animals;
     GameObject currentAnimal;
@@ -16,8 +18,7 @@ public class SpawnAnimalFunc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentAnimal = Instantiate(animals[0]);
-        currentAnimal.transform.position = transform.position;
+        SE = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -134,6 +135,7 @@ public class SpawnAnimalFunc : MonoBehaviour
             currentAnimal = null;
 
             moveUp();
+            SE.Play();
         }
 
     }
